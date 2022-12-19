@@ -1,0 +1,30 @@
+version: '3'
+services:
+
+  backend:
+    container_name: golang_backend
+    build: ./
+    restart: always
+    ports:
+      - 5050:5050
+    volumes:
+      - ./backend:/app
+    networks:
+      - golang
+
+  # postgres:
+  #   image: postgres:13-alpine
+  #   container_name: golang_pgsql
+  #   restart: always
+  #   ports:
+  #     - "5432:5432"
+  #   networks:
+  #     - golang
+  #   volumes:
+  #     - ./docker/pgsql/data:/var/lib/postgresql/data
+  #   environment:
+  #     POSTGRES_PASSWORD: golang
+
+networks:
+  golang:
+    
