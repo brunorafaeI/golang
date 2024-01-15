@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 )
 
@@ -15,8 +16,11 @@ func MainHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-
 	http.HandleFunc("/", MainHandler)
 	fmt.Println("Listening on port 5050...")
-	http.ListenAndServe(":5050", nil)
+	err := http.ListenAndServe(":5050", nil)
+	if err != nil {
+		// Handle the error here
+		log.Fatal(err)
+	}
 }
