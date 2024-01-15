@@ -18,9 +18,5 @@ func main() {
 
 	http.HandleFunc("/", MainHandler)
 	fmt.Println("Listening on port 5050...")
-	_, err := http.ListenAndServe(":5050", nil)
-
-	if err != nil {
-		return
-	}
+	http.ListenAndServe(":5050", nil)
 }
