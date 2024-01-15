@@ -1,11 +1,11 @@
 # The base go-image
-FROM golang:1.19-alpine
+FROM golang:1.22rc1-bullseye
  
 # Create a directory for the app
 RUN mkdir /app
  
 # Copy all files from the current directory to the app directory
-COPY ./backend /app
+COPY ./app /app
  
 # Set working directory
 WORKDIR /app
